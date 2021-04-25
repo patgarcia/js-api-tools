@@ -25,8 +25,16 @@ let queryParams = {
     symbols : ['aapl', 'goog', 'fb'],
     types : ['chart', 'quote'],
     range: '24h',
-    filter: ['companyName','symbol','latestPrice','change','high','low','open']
 }
 
-getQueryParamStr(queryParams);
-// 'symbols=aapl,goog,fb&types=chart,quote&range=24h&filter=companyName,symbol,latestPrice,change,high,low,open'
+getQueryParamStr(queryParams); // 'symbols=aapl,goog,fb&types=chart,quote&range=24h'
+
+
+/*========
+  SLUGIFY
+ ========*/
+
+const slugify = str => str.toLowerCase().replace(/[^\x61-\x7A \s]/g, "").split(' ').join('-');
+
+slugify("American Decorative Arts") // 'american-decorative-arts'
+
